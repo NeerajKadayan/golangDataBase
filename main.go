@@ -3,14 +3,14 @@ package main
 import (
 	"database/sql"
 	"fmt"
+
+	_ "github.com/go-sql-driver/mysql"
 )
-import _ "github.com/go-sql-driver/mysql"
 
 // Customer type
 type Customer struct {
-	Id int
+	Id   int
 	Name string
-	
 }
 
 func main() {
@@ -23,10 +23,10 @@ func main() {
 
 	// updating the customer by id
 	// updateById(Customer{101, "Singh"})
-	 updateById(Customer{104, "Kumar"})
+	updateById(Customer{104, "Kumar"})
 
 	// delete a customer by id
-	 delete(103)
+	delete(103)
 
 }
 
@@ -36,7 +36,7 @@ func connect() *sql.DB {
 	if err != nil {
 		fmt.Println("Error! Getting connection...")
 	}
-	return db;
+	return db
 }
 
 // function to insert a row in customer table
